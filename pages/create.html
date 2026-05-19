@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GuideAI — Create Account</title>
+  <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}</script>
+  <link rel="stylesheet" href="/css/styles.css"/>
+  <link rel="stylesheet" href="/css/form.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body class="form-body">
+
+<div class="form-page">
+  <div class="form-card">
+
+    <div class="form-logo">
+      <div class="form-logo__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
+          <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594zM20 2v4m2-2h-4"/>
+            <circle cx="4" cy="20" r="2"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <h1 class="form-title">Create Account</h1>
+    <p class="form-sub">Start your AI-powered travel journey</p>
+
+    <div class="form-error hidden" id="formError"></div>
+    <div class="form-success hidden" id="formSuccess"></div>
+
+    <div class="form-fields">
+      <div class="form-field">
+        <label>Full Name</label>
+        <div class="form-input-wrap">
+          <i class="fa-regular fa-user"></i>
+          <input type="text" id="fullname" placeholder="John Doe" autocomplete="name"/>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label>Email</label>
+        <div class="form-input-wrap">
+          <i class="fa-regular fa-envelope"></i>
+          <input type="email" id="email" placeholder="you@example.com" autocomplete="email"/>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label>Password</label>
+        <div class="form-input-wrap">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="password" placeholder="••••••••"/>
+          <button class="form-eye" type="button" onclick="togglePass('password', this)">
+            <i class="fa-regular fa-eye"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label>Confirm Password</label>
+        <div class="form-input-wrap">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="confirm" placeholder="••••••••"/>
+          <button class="form-eye" type="button" onclick="togglePass('confirm', this)">
+            <i class="fa-regular fa-eye"></i>
+          </button>
+        </div>
+      </div>
+
+      <button class="form-submit" id="submitBtn" onclick="handleRegister()">
+        Create Account
+      </button>
+
+      <div class="form-divider"><span>Or continue with</span></div>
+
+      <button class="form-google" onclick="handleGoogle()">
+        <i class="fa-brands fa-google"></i>
+        Continue with Google
+      </button>
+
+      <p class="form-footer">
+        Already have an account? <a href="/pages/login.html">Sign in</a>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script src="/javascript/form.js"></script>
+</body>
+</html>

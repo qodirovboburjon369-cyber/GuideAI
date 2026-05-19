@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GuideAI — My Trips</title>
+  <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}</script>
+  <link rel="stylesheet" href="/css/styles.css"/>
+  <link rel="stylesheet" href="/css/trip.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body>
+
+<header data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="1500" class="header">
+  <div class="header__wrapper">
+    <div class="header__logobox">
+      <div class="iconbx">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594zM20 2v4m2-2h-4"/>
+            <circle cx="4" cy="20" r="2"/>
+          </g>
+        </svg>
+      </div>
+      <p class="logogtext">GuideAI</p>
+    </div>
+ 
+    <ul class="header__list">
+      <li><a href="/index.html" class="header__link"><i class="fa-solid fa-house"></i>Home</a></li>
+      <li><a href="/pages/ai.html" class="header__link"><i class="fa-solid fa-brain"></i>AI <span class="nav-new">NEW</span></a></li>
+      <li><a href="/pages/map.html" class="header__link"><i class="fa-solid fa-map"></i>Hotels</a></li>
+      <li><a href="/pages/landmarks.html" class="header__link"><i class="fa-solid fa-landmark"></i>Landmarks <span class="nav-new">NEW</span></a></li>
+      <li><a href="/pages/trip.html" class="header__link"><i class="fa-solid fa-suitcase-rolling"></i>Trip</a></li>
+    </ul>
+ 
+    <div class="header__right">
+      <button class="lightmode"><i class="fa-solid fa-sun"></i></button>
+      <div class="header__btnbox">
+        <button class="header__login">Login</button>
+        <button class="header__sign">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="trip-page">
+  <div class="container">
+
+    <div class="trip-topbar">
+      <div>
+        <h1 class="trip-title">My Bookings</h1>
+        <p class="trip-sub" id="tripCount">Loading...</p>
+      </div>
+      <div class="trip-topbar__right">
+        <button class="trip-filter active" data-f="all">All</button>
+        <button class="trip-filter" data-f="upcoming">Upcoming</button>
+        <button class="trip-filter" data-f="past">Past</button>
+        <a href="/pages/map.html" class="trip-book-btn">
+          <i class="fa-solid fa-plus"></i> Book Another Hotel
+        </a>
+      </div>
+    </div>
+
+    <!-- Bookings list -->
+    <div id="bookingsList"></div>
+
+    <!-- Empty state -->
+    <div class="trip-empty hidden" id="emptyState">
+      <div class="trip-empty__icon"><i class="fa-solid fa-suitcase-rolling"></i></div>
+      <h2>No bookings yet</h2>
+      <p>You haven't booked any hotels yet. Explore the map and find your perfect stay!</p>
+      <a href="/pages/map.html" class="trip-book-btn">
+        <i class="fa-solid fa-map"></i> Explore Hotels
+      </a>
+    </div>
+
+  </div>
+</main>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+<script src="/javascript/trip.js"></script>
+<script src="/javascript/header.js"></script>
+</body>
+</html>

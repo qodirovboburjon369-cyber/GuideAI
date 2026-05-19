@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GuideAI — Hotel Map</title>
+  <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}</script>
+  <link rel="stylesheet" href="/css/styles.css"/>
+  <link rel="stylesheet" href="/css/map.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <script src="https://api-maps.yandex.ru/2.1/?lang=en_US" type="text/javascript"></script>
+</head>
+<body class="map-page-body">
+
+<header data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500" class="header">
+  <div class="header__wrapper">
+    <div class="header__logobox">
+      <div class="iconbx">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594zM20 2v4m2-2h-4"/>
+            <circle cx="4" cy="20" r="2"/>
+          </g>
+        </svg>
+      </div>
+      <p class="logogtext">GuideAI</p>
+    </div>
+    <ul class="header__list">
+      <li><a href="/index.html" class="header__link"><i class="fa-solid fa-house"></i>Home</a></li>
+      <li><a href="/pages/ai.html" class="header__link"><i class="fa-solid fa-brain"></i>AI <span class="nav-new">NEW</span></a></li>
+      <li><a href="/pages/map.html" class="header__link"><i class="fa-solid fa-map"></i>Map</a></li>
+      <li><a href="/pages/landmarks.html" class="header__link"><i class="fa-solid fa-landmark"></i>Landmarks <span class="nav-new">NEW</span></a></li>
+      <li><a href="/pages/trip.html" class="header__link"><i class="fa-solid fa-suitcase-rolling"></i>Trip</a></li>
+    </ul>
+    <div class="header__right">
+      <button class="lightmode"><i class="fa-solid fa-sun"></i></button>
+      <div class="header__btnbox">
+        <button class="header__login">Login</button>
+        <button class="header__sign">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="map-page">
+
+  <aside class="map-sidebar">
+    <div class="map-sidebar__top">
+      <div class="map-sidebar__title">HOTELS IN UZBEKISTAN</div>
+      <div class="map-search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search hotel or city..."/>
+      </div>
+      <div class="map-filters">
+        <button class="map-filter active" data-filter="all">All</button>
+        <button class="map-filter" data-filter="luxury">Luxury</button>
+        <button class="map-filter" data-filter="budget">Budget</button>
+        <button class="map-filter" data-filter="resort">Resort</button>
+      </div>
+    </div>
+    <p class="map-sidebar__count" id="hotelCount"></p>
+    <div class="map-hotel-list" id="hotelList"></div>
+  </aside>
+
+  <div class="map-container">
+    <div id="mapContainer"></div>
+  </div>
+
+  <div class="map-detail" id="detailPanel">
+    <button class="map-detail__close" id="closeDetail"><i class="fa-solid fa-xmark"></i></button>
+    <div class="map-detail__inner">
+      <div class="map-detail__img-wrap">
+        <img id="detailImg" src="" alt=""/>
+        <div class="map-detail__gallery-dots" id="galleryDots"></div>
+        <button class="gallery-btn prev" id="galleryPrev"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="gallery-btn next" id="galleryNext"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="map-detail__content">
+        <div class="map-detail__info">
+          <div class="map-detail__top">
+            <div>
+              <div class="map-detail__name" id="detailName"></div>
+              <div class="map-detail__meta">
+                <span><i class="fa-solid fa-location-dot"></i><span id="detailLocation"></span></span>
+                <span><i class="fa-solid fa-star"></i><span id="detailRating"></span></span>
+              </div>
+            </div>
+          </div>
+          <p class="map-detail__desc" id="detailDesc"></p>
+          <div class="map-detail__amenities" id="detailAmenities"></div>
+        </div>
+        <div class="map-detail__booking">
+          <div>
+            <div class="price-label">Price per night</div>
+            <div class="price-value" id="detailPrice"></div>
+            <div class="price-per">per night from</div>
+          </div>
+          <button class="map-book-btn" id="bookBtn">Book Now</button>
+          <p class="map-detail__note">50% advance · Free cancellation 24h</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOKING MODAL -->
+  <div class="map-modal hidden" id="bookingModal">
+    <div class="map-modal__overlay" id="modalOverlay"></div>
+    <div class="map-modal__box">
+      <button class="map-modal__close" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+      <h2>Complete Your Booking</h2>
+      <p class="map-modal__hotel-name" id="modalHotelName"></p>
+      <div class="map-modal__grid">
+        <div class="map-modal__field">
+          <label><i class="fa-solid fa-calendar"></i> Check-in</label>
+          <input type="date" id="checkin"/>
+        </div>
+        <div class="map-modal__field">
+          <label><i class="fa-solid fa-calendar"></i> Check-out</label>
+          <input type="date" id="checkout"/>
+        </div>
+      </div>
+      <div class="map-modal__field">
+        <label><i class="fa-solid fa-users"></i> Guests</label>
+        <select id="guests">
+          <option>1 Guest</option><option>2 Guests</option>
+          <option selected>3 Guests</option><option>4 Guests</option><option>5+ Guests</option>
+        </select>
+      </div>
+      <div class="map-modal__rooms" id="modalRooms"></div>
+      <div class="map-modal__summary">
+        <div class="summary-row"><span>Nights</span><span id="sumNights">1</span></div>
+        <div class="summary-row"><span>Room</span><span id="sumRoom">—</span></div>
+        <div class="summary-row total"><span>Total</span><span id="sumTotal">—</span></div>
+        <div class="summary-row highlight"><span>Pay now (50%)</span><span id="sumPay">—</span></div>
+        <div class="summary-row muted"><span>Pay at hotel</span><span id="sumLater">—</span></div>
+      </div>
+      <button class="map-modal__pay-btn" id="payBtn">Continue to Payment</button>
+    </div>
+  </div>
+
+  <!-- PAYMENT MODAL -->
+  <div class="map-modal hidden" id="paymentModal">
+    <div class="map-modal__overlay" id="payOverlay"></div>
+    <div class="map-modal__box">
+      <button class="map-modal__close" id="closePayment"><i class="fa-solid fa-xmark"></i></button>
+      <div class="map-payment__icon"><i class="fa-solid fa-lock"></i></div>
+      <h2>Secure Payment</h2>
+      <p class="map-modal__hotel-name" id="payHotelName"></p>
+      <div class="map-modal__field">
+        <label><i class="fa-solid fa-credit-card"></i> Card Number</label>
+        <input type="text" id="cardNum" placeholder="1234 5678 9012 3456" maxlength="19"/>
+      </div>
+      <div class="map-modal__field">
+        <label>Cardholder Name</label>
+        <input type="text" id="cardName" placeholder="John Doe"/>
+      </div>
+      <div class="map-modal__grid">
+        <div class="map-modal__field">
+          <label>Expiry Date</label>
+          <input type="text" id="cardExp" placeholder="MM/YY" maxlength="5"/>
+        </div>
+        <div class="map-modal__field">
+          <label>CVV</label>
+          <input type="text" id="cardCvv" placeholder="123" maxlength="3"/>
+        </div>
+      </div>
+      <div class="map-payment__secure">
+        <i class="fa-solid fa-shield-halved"></i>
+        <div><strong>Secure Payment</strong><p>Bank-level encryption. We never store your card details.</p></div>
+      </div>
+      <button class="map-modal__pay-btn" id="confirmPayBtn">Pay $<span id="payAmount"></span> Now</button>
+    </div>
+  </div>
+
+  <!-- CONFIRMED -->
+  <div class="map-modal hidden" id="confirmedModal">
+    <div class="map-modal__overlay"></div>
+    <div class="map-modal__box map-modal__box--confirmed">
+      <div class="confirmed-icon"><i class="fa-solid fa-check"></i></div>
+      <h2 class="confirmed-title">Booking Confirmed!</h2>
+      <p class="confirmed-sub">Your payment was successful. Have a great trip!</p>
+      <div class="confirmed-card" id="confirmedCard"></div>
+      <div class="confirmed-ref"><span>Booking Reference</span><strong id="confirmedRef"></strong></div>
+      <button class="map-modal__pay-btn" onclick="closeAllModals()">Browse More Hotels</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="/javascript/map.js"></script>
+<script src="/javascript/header.js"></script>
+</body>
+</html>

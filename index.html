@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- site icon -->
+    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <!-- end site icon -->
+
+    <!-- css link -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- end css link -->
+
+    <!-- fontawesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- fontawesome link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+   <header data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="1500" class="header">
+  <div class="header__wrapper">
+    <div class="header__logobox">
+      <div class="iconbx">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594zM20 2v4m2-2h-4"/>
+            <circle cx="4" cy="20" r="2"/>
+          </g>
+        </svg>
+      </div>
+      <p class="logogtext">GuideAI</p>
+    </div>
+
+    <ul class="header__list">
+      <li><a href="/index.html" class="header__link"><i class="fa-solid fa-house"></i>Home</a></li>
+      <li><a href="/pages/ai.html" class="header__link"><i class="fa-solid fa-brain"></i>AI <span class="nav-new">NEW</span></a></li>
+      <li><a href="/pages/map.html" class="header__link"><i class="fa-solid fa-map"></i>Hotels</a></li>
+      <li><a href="/pages/landmarks.html" class="header__link"><i class="fa-solid fa-landmark"></i>Landmarks <span class="nav-new">NEW</span></a></li>
+      <li><a href="/pages/trip.html" class="header__link"><i class="fa-solid fa-suitcase-rolling"></i>Trip</a></li>
+    </ul>
+ 
+    <div class="header__right">
+      <button class="lightmode"><i class="fa-solid fa-sun"></i></button>
+      <div class="header__btnbox">
+        <button class="header__login">Login</button>
+        <button class="header__sign">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</header>
+    <main class="main">
+      <section class="hero">
+        <div class="container">
+          <div class="hero__wrapper">
+            <div class="hero__subtitlre">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594zM20 2v4m2-2h-4"
+                  />
+                  <circle cx="4" cy="20" r="2" />
+                </g>
+              </svg>
+              AI-Powered Travel Assistant
+            </div>
+            <h1 class="hero__title">
+              Your AI Tour Guide
+              <span class="bluue" data-text="Anywhere You Go"></span>
+            </h1>
+            <p class="hero__text">
+              Discover the stories behind every landmark. Just snap a photo and
+              let AI be your personal tour guide.
+            </p>
+            <div class="hero__btnbox">
+              <button class="image">
+                <i class="fa-solid fa-download"></i>Upload Image
+              </button>
+              <button class="map">
+                <i class="fa-solid fa-map"></i>Explore Map
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <section class="services">
+  <div class="container">
+
+    <div class="services__head"  data-aos="fade-up" data-aos-duration="800">
+      <div class="services__badge">
+        <i class="fa-solid fa-star"></i> What We Offer
+      </div>
+      <h2 class="services__title">Everything you need<br/>for smarter travel</h2>
+      <p class="services__sub">Explore the world like never before with AI-powered tools designed for modern travelers.</p>
+    </div>
+
+    <ul class="ser__list">
+
+      <li class="ser__item" data-aos="fade-up" data-aos-duration="1000">
+        <span class="ser__number">01</span>
+        <div class="ser__imgbox">
+          <i class="fa-solid fa-camera-retro"></i>
+        </div>
+        <h3 class="ser__title">AI Landmark Recognition</h3>
+        <p class="ser__text">
+          Snap a photo of any landmark and get instant AI-powered identification with rich historical context, facts, and insider stories.
+        </p>
+        <a href="/pages/ai.html" class="ser__link">
+          Try it now <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </li>
+
+      <li class="ser__item" data-aos="fade-up" data-aos-duration="1400">
+        <span class="ser__number">02</span>
+        <div class="ser__imgbox">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </div>
+        <h3 class="ser__title">Interactive Hotel Map</h3>
+        <p class="ser__text">
+          Browse hundreds of hotels on an interactive map. Filter by price, category and book instantly with secure 50% advance payment.
+        </p>
+        <a href="/pages/map.html" class="ser__link">
+          Explore map <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </li>              
+
+      <li class="ser__item" data-aos="fade-up" data-aos-duration="1800">
+        <span class="ser__number">03</span>
+        <div class="ser__imgbox">
+          <i class="fa-solid fa-suitcase-rolling"></i>
+        </div>
+        <h3 class="ser__title">Smart Trip Planner</h3>
+        <p class="ser__text">
+          Manage all your bookings in one place. Track check-in dates, payment status, and travel details with your personal trip dashboard.
+        </p>
+        <a href="/pages/trip.html" class="ser__link">
+          My trips <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+      <!-- <section class="works">
+        <div class="container">
+          <div class="wroks__wrapper">
+            <ul class="work__list">
+              <li class="work__item">
+                <div class="work__imgbox">
+                  <i class="fa-solid fa-1"></i>
+                </div>
+                <h3 class="work__title">AI Recognition</h3>
+                <p class="work__text">
+                  Instantly identify any landmark or tourist attraction with
+                  AI-powered image recognition
+                </p>
+              </li>
+              <li class="work__item">
+                <div class="work__imgbox">
+                  <i class="fa-solid fa-1"></i>
+                </div>
+                <h3 class="work__title">AI Recognition</h3>
+                <p class="work__text">
+                  Instantly identify any landmark or tourist attraction with
+                  AI-powered image recognition
+                </p>
+              </li>
+              <li class="work__item">
+                <div class="work__imgbox">
+                  <i class="fa-solid fa-1"></i>
+                </div>
+                <h3 class="work__title">AI Recognition</h3>
+                <p class="work__text">
+                  Instantly identify any landmark or tourist attraction with
+                  AI-powered image recognition
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section> -->
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="/javascript/script.js"></script>
+    <script src="/javascript/header.js"></script>
+  </body>
+</html>

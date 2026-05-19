@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GuideAI — AI Scanner</title>
+    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <script>
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
+    <link rel="stylesheet" href="/css/ai.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="1500"
+      class="header"
+    >
+      <div class="header__wrapper">
+        <div class="header__logobox">
+          <div class="iconbx">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+            >
+              <g
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              >
+                <path
+                  d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594zM20 2v4m2-2h-4"
+                />
+                <circle cx="4" cy="20" r="2" />
+              </g>
+            </svg>
+          </div>
+          <p class="logogtext">GuideAI</p>
+        </div>
+        <ul class="header__list">
+          <li>
+            <a href="/index.html" class="header__link"
+              ><i class="fa-solid fa-house"></i>Home</a
+            >
+          </li>
+          <li>
+            <a href="/pages/ai.html" class="header__link"
+              ><i class="fa-solid fa-brain"></i>AI
+              <span class="nav-new">NEW</span></a
+            >
+          </li>
+          <li>
+            <a href="/pages/map.html" class="header__link"
+              ><i class="fa-solid fa-map"></i>Hotels</a
+            >
+          </li>
+          <li>
+            <a href="/pages/landmarks.html" class="header__link"
+              ><i class="fa-solid fa-landmark"></i>Landmarks
+              <span class="nav-new">NEW</span></a
+            >
+          </li>
+          <li>
+            <a href="/pages/trip.html" class="header__link"
+              ><i class="fa-solid fa-suitcase-rolling"></i>Trip</a
+            >
+          </li>
+        </ul>
+        <div class="header__right">
+          <button class="lightmode"><i class="fa-solid fa-sun"></i></button>
+          <div class="header__btnbox">
+            <button class="header__login">Login</button>
+            <button class="header__sign">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="scan">
+        <div class="container">
+          <div class="scan__header">
+            <div class="scan__badge">
+              <i class="fa-solid fa-camera"></i>
+              AI Image Recognition
+            </div>
+            <h1 class="scan__title">Scan Your Landmark</h1>
+            <p class="scan__subtitle">
+              Upload a photo of any landmark or tourist attraction, and let AI
+              tell you all about it
+            </p>
+          </div>
+
+          <div class="scan__upload">
+            <input type="file" id="imageInput" hidden accept="image/*" />
+
+            <div class="scan__topbar">
+              <span class="scan__lang-label">
+                <i class="fa-solid fa-globe icon"></i>
+                Language
+              </span>
+              <select id="langSelect">
+                <option value="uz">🇺🇿 O'zbek</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="ru">🇷🇺 Русский</option>
+                <option value="zh">🇨🇳 中文</option>
+              </select>
+            </div>
+            
+            <div class="scan__upload-inner" id="uploadZone">
+              <div class="scan__icon">
+                <i class="fa-solid fa-arrow-up"></i>
+              </div>
+              <h3>Drop your image here</h3>
+              <p>or click to browse from your device</p>
+              <button class="scan__btn" type="button">
+                <i class="fa-solid fa-image"></i>
+                Choose Image
+              </button>
+            </div>
+          </div>
+
+          <div class="scan__preview hidden">
+            <img id="previewImage" alt="Preview" />
+          </div>
+
+          <div class="scan__result hidden">
+            <h3 class="Description">AI Description</h3>
+            <textarea
+              id="aiResult"
+              placeholder="AI response will appear here..."
+            ></textarea>
+          </div>
+
+          <div class="scan__info">
+            <div class="scan__card">
+              <h4>Instant Recognition</h4>
+              <p>AI identifies landmarks in seconds</p>
+            </div>
+            <div class="scan__card">
+              <h4>Detailed Info</h4>
+              <p>Get history, facts, and stories</p>
+            </div>
+            <div class="scan__card">
+              <h4>Save to Trip</h4>
+              <p>Add to your travel itinerary</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="/javascript/config.js"></script>
+    <script src="/javascript/ai.script.js"></script>
+    <script src="/javascript/header.js"></script>
+  </body>
+</html>
